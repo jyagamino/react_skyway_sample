@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { useHistory } from "react-router";
+import { PeerContext } from "../App";
 
-export default function CallingPage() {
+export default function CallingPage(props) {
+  const peer = useContext(PeerContext);
   const history = useHistory();
+  // PeerId
+  // props.location.state.myId
+
+  useEffect(() => {
+
+  }, []);
 
   const handleClickEndCall = () => {
     // TODO: 発信の終了

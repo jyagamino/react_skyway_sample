@@ -7,8 +7,6 @@ export default function TopPage() {
   const history = useHistory();
   // 自分のPeerID
   const [myId, setMyId] = useState("");
-  // 相手のPeerID
-  const [opponentId, setOpponentId] = useState("");
 
   useEffect(() => {
     // PeerIDの取得
@@ -18,7 +16,10 @@ export default function TopPage() {
   }, []);
 
   const handleClick = () => {
-    history.push("/calling");
+    history.push({
+      pathname: "/calling",
+      state: { myId }
+    });
   };
 
   return (
