@@ -1,7 +1,8 @@
 import React, { createContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import TopPage from "./components/TopPage";
-import CallingPage from "./components/CallingPage";
+import FailedPage from "./components/FailedPage";
+
 
 import Peer from 'skyway-js'
 import "./App.css";
@@ -24,7 +25,7 @@ export default function App() {
         <PeerContext.Provider value={peer}>
           <Router>
             <Route exact path="/" component={TopPage}></Route>
-            <Route path="/calling" component={CallingPage}></Route>
+            <Route path="/failed" component={FailedPage}></Route>
           </Router>
         </PeerContext.Provider>
     </main>

@@ -11,7 +11,7 @@ export default function CommunicatePage() {
 
   return (
     <>
-      <h2>CallingPage</h2>
+      <h2>CommunicatePage</h2>
       <p>発信中です...</p>
       <button onClick={handleClickEndCall}>End call</button>
     </>

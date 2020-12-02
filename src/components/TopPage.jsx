@@ -7,6 +7,7 @@ export default function TopPage() {
   const history = useHistory();
   // 自分のPeerID
   const [myId, setMyId] = useState("");
+  const [isCalling, setIsCalling] = useState(false);
 
   useEffect(() => {
     // PeerIDの取得
@@ -15,17 +16,36 @@ export default function TopPage() {
     });
   }, []);
 
-  const handleClick = () => {
-    history.push({
-      pathname: "/calling",
-      state: { myId }
-    });
+
+  // TODO: 発信して成功したらCommunicatePageへ遷移し、失敗したらFailedPageへ遷移
+  const handleClickCalling = () => {
+    setIsCalling(true);
   };
 
-  return (
+  /**
+   * 呼び出しを終了する
+   */
+  const handleClickEndCall = () => {
+    peer.destroy();
+    setIsCalling(false);
+  }
+
+  if (isCalling) {
+    return (
+      <>
+        <h2>CallingPage</h2>
+        <p>発信中です...</p>
+        <button onClick={handleClickEndCall}>End call</button>
+      </>
+    );
+  } else {
+    return (
     <>
       <h2>TopPage</h2>
-      <button onClick={handleClick}>Call</button>
+      <button onClick={handleClickCalling}>Call</button>
     </>
   );
+  }
+
+  
 }
