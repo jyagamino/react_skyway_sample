@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import TopPage from "./components/TopPage";
+import AppsPage from "./components/AppsPage";
 import FailedPage from "./components/FailedPage";
 
 
@@ -24,7 +24,7 @@ export default function App() {
       <main className="main">
         <PeerContext.Provider value={peer}>
           <Router>
-            <Route exact path="/" component={TopPage}></Route>
+            <Route exact path="/" component={AppsPage}></Route>
             <Route path="/failed" component={FailedPage}></Route>
           </Router>
         </PeerContext.Provider>
